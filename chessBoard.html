@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chess Board</title>
+    <link rel="stylesheet" href="chessBoard.css" />
+  </head>
+  <body>
+    <div id="wrapper">
+      <div id="board">
+        
+      </div>
+    </div>
+
+    <script>
+      const board = document.querySelector("#board");
+      
+      let color = "white";
+
+      for (let i = 0; i < 8; i++) {
+        for (let j = 0; j < 8; j++) {
+          const square = document.createElement("div"); /*<div></div>*/
+          square.classList.add("square"); /*<div class="square "></div>*/
+
+          if (color === "black") {
+            square.classList.add("black");
+            color = "white";
+          } else {
+            square.classList.add("white");
+            color = "black";
+          }
+
+          board.append(square);
+        }
+        toggleColor();
+      }
+
+      function toggleColor() {
+        if (color === "white") color = "black";
+        else color = "white";
+      }
+    </script>
+  </body>
+</html>
